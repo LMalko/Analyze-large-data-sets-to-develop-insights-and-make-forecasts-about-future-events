@@ -99,6 +99,7 @@ print(arr + 100)
 print(numpy.sqrt(arr))
 print(numpy.exp(arr))
 print(numpy.std(arr))
+print(numpy.max(arr))
 
 
 print(numpy.sin(arr))
