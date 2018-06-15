@@ -27,4 +27,39 @@ print("\n")
 print(ser1['USA'])
 print("\n")
 print(ser1 + ser2)
+print("\nDATAFRAMES\n")
+
+from numpy.random import randn
+np.random.seed(101)
+
+df = pd.DataFrame(randn(5, 4),
+                  index='A B C D E'.split(),
+                  columns='W X Y Z'.split())
+
+print(ser1['USA'])
+print(df)
 print("\n")
+print(df['W'])
+print("\n")
+print(df[['W','Z']])
+print("\n")
+df['new'] = df['W'] + df['Y']
+print(df)
+print("\n")
+df.drop('new',axis=1, inplace=True)
+print(df)
+df.drop('E',axis=0, inplace=True)
+print("\n")
+print(df)
+print("\n")
+print(df.loc['A'])
+print("\n")
+print(df.iloc[2])
+print("\n")
+print(df.loc['B','Y'])
+print("\n")
+print(df.loc[['A','B'],['W','Y']])
+print("\n")
+print(df.loc[['A','B'],['W','Y']])
+print("\nCONDITIONAL SELECTION")
+
