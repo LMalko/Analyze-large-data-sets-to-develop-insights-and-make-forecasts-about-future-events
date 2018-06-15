@@ -63,3 +63,65 @@ print("\n")
 print(df.loc[['A','B'],['W','Y']])
 print("\nCONDITIONAL SELECTION")
 
+print("\n")
+print(df)
+print("\n")
+print(df > 0)
+print("\n")
+print(df[df > 0])
+print("\n")
+print(df[df['W']>0])
+print("\n")
+print(df[df['W']>0]['Y'])
+print("\n")
+print(df[df['W']>0][['Y','X']])
+print("\n")
+print(df[(df['W']>0) & (df['Y'] > 0)])
+
+print("\n")
+print(df)
+print("\n")
+print(df.reset_index())
+print("\n")
+
+newind = 'CA NY WY CO'.split()
+
+df['States'] = newind
+
+
+print(df)
+print("\n")
+df.set_index('States', inplace=True)
+
+print(df)
+print("\n")
+outside = ['G1','G1','G1','G2','G2','G2']
+inside = [1,2,3,1,2,3]
+hier_index = list(zip(outside,inside))
+hier_index = pd.MultiIndex.from_tuples(hier_index)
+
+df = pd.DataFrame(np.random.randn(6,2),
+                   index=hier_index,
+                   columns=['A','B'])
+print(df)
+
+print("\n")
+print(df.loc['G1'])
+print("\n")
+print(df.loc['G1'].loc[1])
+print("\n")
+df.index.names = ['Group','Num']
+print(df)
+print("\n")
+print(df.xs('G1'))
+print("\n")
+print(df.xs(['G1',1]))
+print("\n")
+print(df.xs(1,level='Num'))
+
+print("\n\nMISSING DATA")
+
+
+
+
+
