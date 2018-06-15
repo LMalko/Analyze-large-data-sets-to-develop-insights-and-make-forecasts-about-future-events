@@ -357,3 +357,35 @@ csv_file.to_csv("MyOutput.csv", index=False)
 excel_file = pd.read_excel("Excel_Sample.xlsx")
 print('\n')
 print(excel_file)
+
+excel_file["c"] = excel_file["c"].apply(times2)
+# excel_file.to_excel("MyOutput2.xlsx", index=False)
+
+
+# html_= pd.read_html('https://en.wikipedia.org/wiki/All-time_Olympic_Games_medal_table',
+#                     encoding='utf-8')
+#
+# print(html_[1])
+
+from sqlalchemy import create_engine
+
+engine = create_engine("sqlite:///:memory:")
+
+print("\n")
+print(df)
+df.to_sql("my_table", engine)
+
+sqldf = pd.read_sql("my_table", con=engine)
+
+print(sqldf)
+
+
+
+
+
+
+
+
+
+
+
