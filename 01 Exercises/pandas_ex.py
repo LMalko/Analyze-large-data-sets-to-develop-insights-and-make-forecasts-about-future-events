@@ -272,7 +272,7 @@ print(df['col2'].unique())
 print("\n")
 print(df['col2'].nunique())
 print("\n")
-print(df['col2'].value_counts())
+
 
 print("\n")
 print(df)
@@ -302,7 +302,7 @@ print(df.index)
 print("\n")
 print(df.sort_values(by='col2'))
 print("\n")
-
+print(df["Sales"].value_counts().head(3))
 print("\n")
 print(df.isnull())
 print("\n")
@@ -340,3 +340,58 @@ df = pd.DataFrame(data)
 print("\n")
 print(df)
 print("\n")
+
+print("\n")
+print(df.pivot_table(values='D',index=['A', 'B'],columns=['C']))
+print("\n")
+
+print("DATA INPUT AND OUTPUT")
+
+csv_file = pd.read_csv("CSV_Sample.csv")
+print(csv_file)
+print("\n")
+print(csv_file.head())
+print("\n")
+
+csv_file["birthyear"] = csv_file["birthyear"].apply(times2)
+csv_file.to_csv("MyOutput.csv", index=False)
+
+excel_file = pd.read_excel("Excel_Sample.xlsx")
+print('\n')
+print(excel_file)
+
+excel_file["c"] = excel_file["c"].apply(times2)
+# excel_file.to_excel("MyOutput2.xlsx", index=False)
+
+
+# html_= pd.read_html('https://en.wikipedia.org/wiki/All-time_Olympic_Games_medal_table',
+#                     encoding='utf-8')
+#
+# print(html_[1])
+
+from sqlalchemy import create_engine
+
+engine = create_engine("sqlite:///:memory:")
+
+print("\n")
+print(df)
+print("\n")
+print(df.info())
+df.to_sql("my_table", engine)
+
+sqldf = pd.read_sql("my_table", con=engine)
+print('\n')
+print(sqldf)
+
+
+
+
+
+
+
+
+
+
+
+
+
