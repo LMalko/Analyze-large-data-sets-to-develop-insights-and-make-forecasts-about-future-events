@@ -272,7 +272,7 @@ print(df['col2'].unique())
 print("\n")
 print(df['col2'].nunique())
 print("\n")
-print(df['col2'].value_counts())
+
 
 print("\n")
 print(df)
@@ -302,7 +302,7 @@ print(df.index)
 print("\n")
 print(df.sort_values(by='col2'))
 print("\n")
-
+print(df["Sales"].value_counts().head(3))
 print("\n")
 print(df.isnull())
 print("\n")
@@ -350,6 +350,8 @@ print("DATA INPUT AND OUTPUT")
 csv_file = pd.read_csv("CSV_Sample.csv")
 print(csv_file)
 print("\n")
+print(csv_file.head())
+print("\n")
 
 csv_file["birthyear"] = csv_file["birthyear"].apply(times2)
 csv_file.to_csv("MyOutput.csv", index=False)
@@ -373,11 +375,15 @@ engine = create_engine("sqlite:///:memory:")
 
 print("\n")
 print(df)
+print("\n")
+print(df.info())
 df.to_sql("my_table", engine)
 
 sqldf = pd.read_sql("my_table", con=engine)
-
+print('\n')
 print(sqldf)
+
+
 
 
 
