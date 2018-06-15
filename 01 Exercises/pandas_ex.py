@@ -340,3 +340,20 @@ df = pd.DataFrame(data)
 print("\n")
 print(df)
 print("\n")
+
+print("\n")
+print(df.pivot_table(values='D',index=['A', 'B'],columns=['C']))
+print("\n")
+
+print("DATA INPUT AND OUTPUT")
+
+csv_file = pd.read_csv("CSV_Sample.csv")
+print(csv_file)
+print("\n")
+
+csv_file["birthyear"] = csv_file["birthyear"].apply(times2)
+csv_file.to_csv("MyOutput.csv", index=False)
+
+excel_file = pd.read_excel("Excel_Sample.xlsx")
+print('\n')
+print(excel_file)
