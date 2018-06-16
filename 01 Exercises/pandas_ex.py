@@ -302,8 +302,36 @@ print(df.index)
 print("\n")
 print(df.sort_values(by='col2'))
 print("\n")
-print(df["Sales"].value_counts().head(3))
+
+# 3 top occuring values
+print(df["col2"].value_counts().head(3))
 print("\n")
+
+# 1.
+# How many Job Titles were represented by only one person
+# in 2013?
+# (e.g. Job Titles with only one occurence in 2013?)
+
+# sum(df[df['Year']==2013]['JobTitle'].value_counts() == 1)
+
+# 2.
+# How many people have the word Chief in their job title?
+
+def chief_string(title):
+    if 'chief' in title.lower():
+        return True
+    else:
+        return False
+
+# sum(df['JobTitle'].apply(lambda x: chief_string(x)))
+
+# 3.
+# Is there a correlation between length of
+# the Job Title string and Salary?
+
+# df['title_len'] = df['JobTitle'].apply(len)
+# df[['title_len','TotalPayBenefits']].corr()
+
 print(df.isnull())
 print("\n")
 df.dropna()
