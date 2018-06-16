@@ -160,6 +160,11 @@ print("\n")
 print(df.groupby("Company").min())
 print("\n")
 print(df.groupby("Company").count())
+
+# df[df['Language']=='en'].count()
+# len(df[df["Language"] == "en"])
+
+
 print("\n")
 print(df.groupby("Company").describe())
 print("\n")
@@ -411,15 +416,18 @@ sqldf = pd.read_sql("my_table", con=engine)
 print('\n')
 print(sqldf)
 
+# How many people have a credit card that expires in 2025?
+
+# import re
+# def check_2025(text):
+#     regex = re.compile("^\d\d\/25$")
+#     return True if re.match(regex, text) else False
+#
+#
+# len(df["CC Exp Date"][df["CC Exp Date"].apply(lambda x: check_2025(x))])
+#
 
 
-
-
-
-
-
-
-
-
-
-
+# What are the top 5 most popular
+# email providers/hosts (e.g. gmail.com, yahoo.com, etc...)
+# df['Email'].apply(lambda x: x.split('@')[1]).value_counts().head(5)
