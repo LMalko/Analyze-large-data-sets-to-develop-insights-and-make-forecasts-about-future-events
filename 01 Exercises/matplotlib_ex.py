@@ -33,7 +33,10 @@ axes.set_title("This table")
 # plt.show()
 plt.close()
 
+
+# OOP - Create canvas
 fig = plt.figure()
+
                                     # LEFT, BOTTOM, WIDTH, HEIGHT.
 axes1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
 axes2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
@@ -51,4 +54,25 @@ axes2.set_ylabel("Y Label")
 axes1.set_title("This table")
 axes2.set_title("That table")
 
+# plt.show()
+plt.close()
+
+fig, axes = plt.subplots(nrows=3, ncols=3)
+plt.tight_layout()
+
+# plt.show()
+plt.close()
+
+fig, axes = plt.subplots(nrows=1, ncols=2)
+
+for current_ax in axes:
+    current_ax.plot(x, y)
+
+axes[0].set_title("First axes")
+axes[1].set_title("Second axes")
+
 plt.show()
+
+
+
+
