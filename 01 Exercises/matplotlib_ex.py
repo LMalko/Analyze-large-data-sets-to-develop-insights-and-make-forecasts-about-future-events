@@ -104,13 +104,19 @@ plt.close()
 
 fig2, axes = plt.subplots(figsize=(5,5))
 
-axes.plot(x, x ** 2, label="**2")
-axes.plot(x, x ** 3, label="**3")
-axes.plot(x, x ** 3.5, label="**3.5")
+axes.plot(x, x ** 2, label="**2", color="green", linestyle="--",
+          marker="o", markersize=10, markerfacecolor="yellow",
+          markeredgewidth=2, markeredgecolor="blue")
+axes.plot(x, x ** 3, label="**3", color="orange", linewidth=3,
+          linestyle="-.", marker="o")
+axes.plot(x, x ** 3.5, label="**3.5", color="black",
+          linewidth=3, alpha=0.3, linestyle=":")
 
-
+axes.set_xlim([0, 3])
+axes.set_ylim([0, 7])
 # Display legends
 axes.legend(loc=6)
+
 
 plt.show()
 
