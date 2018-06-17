@@ -71,6 +71,47 @@ for current_ax in axes:
 axes[0].set_title("First axes")
 axes[1].set_title("Second axes")
 
+# plt.show()
+plt.close()
+
+
+fig = plt.figure(figsize=(5,5))
+ax = fig.add_axes([0,0,1,1])
+ax.plot(x, y)
+
+# plt.show()
+plt.close()
+
+fig, axes = plt.subplots(figsize=(4,4))
+
+axes.plot(x, y)
+
+# plt.show()
+plt.close()
+
+
+fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(8,2))
+
+axes[0].plot(x, y)
+axes[1].plot(y, x)
+
+plt.tight_layout()
+
+# fig.savefig("my_fig.png", dpi=200)
+# plt.show()
+plt.close()
+
+
+fig2, axes = plt.subplots(figsize=(5,5))
+
+axes.plot(x, x ** 2, label="**2")
+axes.plot(x, x ** 3, label="**3")
+axes.plot(x, x ** 3.5, label="**3.5")
+
+
+# Display legends
+axes.legend(loc=6)
+
 plt.show()
 
 
