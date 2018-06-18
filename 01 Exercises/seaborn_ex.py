@@ -17,8 +17,29 @@ sns.distplot(tips['total_bill'], kde=False, bins=40)
 # plt.show()
 plt.close()
 
-sns.jointplot(x='total_bill',y='sex',data=tips)
+sns.jointplot(x='total_bill',y='tip',data=tips, kind="hex")
+# plt.show()
+plt.close()
 
+sns.jointplot(x='total_bill', y='tip', data=tips, kind="kde")
+# plt.show()
+plt.close()
+
+sns.jointplot(x='total_bill', y='tip', data=tips, kind="reg")
+# plt.show()
+plt.close()
+
+sns.jointplot(x='total_bill', y='tip', data=tips)
+# plt.show()
+plt.close()
+
+sns.pairplot(tips)
+# plt.show()
+plt.close()
+
+sns.pairplot(tips, hue="sex")
 plt.show()
+
+
 
 
