@@ -14,6 +14,11 @@ sns.distplot(tips['total_bill'])
 plt.close()
 
 sns.distplot(tips['total_bill'], kde=False, bins=40)
+# plt.show()
+plt.close()
+
+sns.jointplot(x='total_bill',y='sex',data=tips)
+
 plt.show()
 
 
