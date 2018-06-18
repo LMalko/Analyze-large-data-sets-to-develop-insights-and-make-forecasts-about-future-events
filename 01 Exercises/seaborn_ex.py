@@ -53,12 +53,67 @@ plt.close()
 
 # 2. CATEGORICAL PLOTS
 
-# sns.barplot(x="sex", y="total_bill", data=tips)
 
+sns.barplot(x="sex", y="total_bill", data=tips)
+
+# plt.show()
+plt.close()
 
 sns.barplot(x="sex", y="total_bill",
             data=tips,
             estimator=np.min)
+
+# plt.show()
+plt.close()
+
+sns.countplot(x="sex", data=tips)
+
+# plt.show()
+plt.close()
+
+sns.boxplot(x="day", y="total_bill", data=tips)
+
+# plt.show()
+plt.close()
+
+sns.boxplot(x="day", y="total_bill", data=tips,
+            hue="smoker")
+
+# plt.show()
+plt.close()
+
+sns.violinplot(x="day", y="total_bill",
+               data=tips, hue="smoker")
+
+# plt.show()
+plt.close()
+
+sns.violinplot(x="day", y="total_bill",
+               data=tips, hue="smoker", split=True)
+
+# plt.show()
+plt.close()
+
+sns.stripplot(x="day", y="total_bill",
+               data=tips, hue="smoker", jitter=True)
+
+# plt.show()
+plt.close()
+
+# violinplot + stripplot = swarmplot
+sns.swarmplot(x="day", y="total_bill",
+               data=tips, hue="smoker")
+
+# plt.show()
+plt.close()
+
+# or violinplot on top of swarmplot
+
+sns.violinplot(x="day", y="total_bill",
+               data=tips, split=True)
+sns.swarmplot(x="day", y="total_bill",
+               data=tips, color="black")
+
 plt.show()
 
 
