@@ -1,6 +1,7 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 # 1. DISTRIBUTION PLOTS.
 
@@ -47,7 +48,23 @@ plt.close()
 
 # Drops dashmark for every single value.
 sns.rugplot(tips["total_bill"])
+# plt.show()
+plt.close()
+
+# 2. CATEGORICAL PLOTS
+
+# sns.barplot(x="sex", y="total_bill", data=tips)
+
+
+sns.barplot(x="sex", y="total_bill",
+            data=tips,
+            estimator=np.min)
 plt.show()
+
+
+
+
+
 
 
 
