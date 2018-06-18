@@ -41,7 +41,7 @@ sns.pairplot(tips)
 plt.close()
 
 sns.pairplot(tips, hue="sex", palette="husl")
-# plt.show()
+plt.show()
 plt.close()
 
 # KDE = sum of all normal distributions around the plot.
@@ -114,8 +114,14 @@ sns.violinplot(x="day", y="total_bill",
 sns.swarmplot(x="day", y="total_bill",
                data=tips, color="black")
 
+# General function of all kinds of plots, chosen by keyword 'kind'.
+# sns.factorplot(x="day", y="total_bill",
+#                data=tips,kind="violin")
+
+
 plt.show()
 
+# 3. Matrix plots.
 
 
 
