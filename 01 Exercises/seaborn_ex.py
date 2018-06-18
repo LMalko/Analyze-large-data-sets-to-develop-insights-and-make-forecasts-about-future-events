@@ -7,8 +7,10 @@ import pandas as pd
 tips = pd.read_csv('tips.csv')
 
 sns.distplot(tips['total_bill'])
-# No line
+# No kde
 # sns.distplot(tips['total_bill'], kde=False)
+# Only kde
+# sns.distplot(tips['total_bill'])
 
 # plt.show()
 plt.close()
@@ -37,7 +39,14 @@ sns.pairplot(tips)
 # plt.show()
 plt.close()
 
-sns.pairplot(tips, hue="sex")
+sns.pairplot(tips, hue="sex", palette="husl")
+# plt.show()
+plt.close()
+
+# KDE = sum of all normal distributions around the plot.
+
+# Drops dashmark for every single value.
+sns.rugplot(tips["total_bill"])
 plt.show()
 
 
