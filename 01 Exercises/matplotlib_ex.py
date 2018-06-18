@@ -34,28 +34,31 @@ axes.set_title("This table")
 plt.close()
 
 
-# OOP - Create canvas
-fig = plt.figure()
-
-                                    # LEFT, BOTTOM, WIDTH, HEIGHT.
-axes1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
-axes2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
-
-# plt.show()
-axes1.plot(x, y)
-axes2.plot(y,x)
-
-axes1.set_xlabel("X Label")
-axes1.set_ylabel("Y Label")
-
-axes2.set_xlabel("X Label")
-axes2.set_ylabel("Y Label")
-
-axes1.set_title("This table")
-axes2.set_title("That table")
-
-# plt.show()
-plt.close()
+                            # # OOP - Create canvas
+                            # fig = plt.figure()
+                            #
+                            #                                     # LEFT, BOTTOM, WIDTH, HEIGHT.
+                            # axes1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+                            # axes2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
+                            #
+                            # # plt.show()
+                            # axes1.plot(x, y)
+                            # axes2.plot(y,x)
+                            #
+                            # axes1.set_xlabel("X Label")
+                            # axes1.set_ylabel("Y Label")
+                            #
+                            # axes2.set_xlabel("X Label")
+                            # axes2.set_ylabel("Y Label")
+                            #
+                            # axes1.set_title("This table")
+                            # axes2.set_title("That table")
+                            #
+                            # ax2.set_xlim(20,22)
+                            # ax2.set_ylim(30,50)
+                            #
+                            # # plt.show()
+                            # plt.close()
 
 fig, axes = plt.subplots(nrows=3, ncols=3)
 plt.tight_layout()
