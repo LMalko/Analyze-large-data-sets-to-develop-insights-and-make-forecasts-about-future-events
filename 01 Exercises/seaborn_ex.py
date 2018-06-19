@@ -190,10 +190,36 @@ plt.close()
 
 
 
+
+
+
 # 4. GRIDS
 
+iris = pd.read_csv("iris.csv")
+grid = sns.PairGrid(iris)
+#
+# grid.map(plt.scatter)
+
+grid.map_diag(sns.distplot)
+grid.map_upper(plt.scatter)
+grid.map_lower(sns.kdeplot)
 
 
+# plt.show()
+plt.close()
+
+
+grid = sns.FacetGrid(data=tips, col="time", row="smoker")
+#
+# grid.map(sns.distplot, "total_bill")
+grid.map(plt.scatter, "total_bill", "tip")
+
+plt.show()
+
+
+
+
+# 5 REGRESSION PLOTS
 
 
 
