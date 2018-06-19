@@ -214,7 +214,8 @@ grid = sns.FacetGrid(data=tips, col="time", row="smoker")
 # grid.map(sns.distplot, "total_bill")
 grid.map(plt.scatter, "total_bill", "tip")
 
-plt.show()
+# plt.show()
+plt.close()
 
 
 
@@ -222,4 +223,23 @@ plt.show()
 # 5 REGRESSION PLOTS
 
 
+sns.lmplot(x="total_bill", y="tip",
+           data=tips, hue="sex",
+           markers=["o", "v"],
+           # Enlarge markes by calling matplotlib
+           scatter_kws={"s": 100})
 
+# plt.show()
+plt.close()
+
+sns.lmplot(x="total_bill", y="tip",
+           data=tips,
+           # 2 seperate columns
+           col="day",
+           # 2 seperate rows
+           row="time",
+           # Add another column
+           hue="sex",
+           aspect=0.6, size=8)
+
+plt.show()
