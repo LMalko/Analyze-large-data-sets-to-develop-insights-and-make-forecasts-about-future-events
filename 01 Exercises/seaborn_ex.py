@@ -212,6 +212,13 @@ grid.map_lower(sns.kdeplot)
 # plt.show()
 plt.close()
 
+g = sns.FacetGrid(data=tips,col='sex')
+g.map(plt.hist,'tip')
+
+# plt.show()
+plt.close()
+
+
 
 grid = sns.FacetGrid(data=tips, col="time", row="smoker")
 #
@@ -272,7 +279,8 @@ sns.countplot(x="sex", data=tips)
 plt.close()
 
 sns.lmplot(x="total_bill", y="tip",
-           data=tips, hue="sex", palette="seismic")
+           data=tips, hue="sex", palette="seismic"
+                                         "")
 
 
 
