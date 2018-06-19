@@ -41,7 +41,7 @@ sns.pairplot(tips)
 plt.close()
 
 sns.pairplot(tips, hue="sex", palette="husl")
-plt.show()
+# plt.show()
 plt.close()
 
 # KDE = sum of all normal distributions around the plot.
@@ -50,6 +50,17 @@ plt.close()
 sns.rugplot(tips["total_bill"])
 # plt.show()
 plt.close()
+
+
+
+
+
+
+
+
+
+
+
 
 # 2. CATEGORICAL PLOTS
 
@@ -119,10 +130,55 @@ sns.swarmplot(x="day", y="total_bill",
 #                data=tips,kind="violin")
 
 
-plt.show()
+# plt.show()
+plt.close()
+
+
+
+
+
+
+
+
+
+
 
 # 3. Matrix plots.
 
+flights = pd.read_csv("flights.csv")
+
+
+
+
+# Order months
+cats = ['January','February','March','April','May','June',
+        'July','August','September','October','November',
+        'December']
+flights["month"] = flights["month"].astype('category',
+                                  ordered=True,
+                                  categories=cats)
+
+# Convert to matrix form
+tc = tips.corr()
+sns.heatmap(tc)
+
+# plt.show()
+plt.close()
+
+sns.heatmap(tc, annot=True, cmap="coolwarm")
+
+# plt.show()
+plt.close()
+
+# Convert to matrix form
+fp = flights.pivot_table(index="month", columns="year",
+                    values="passengers")
+
+sns.heatmap(fp, cmap="coolwarm", linecolor="white",
+            linewidths=0.5)
+# cmap="magma"
+
+plt.show()
 
 
 
