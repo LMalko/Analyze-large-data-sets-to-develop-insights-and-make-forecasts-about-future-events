@@ -41,6 +41,10 @@ sns.pairplot(tips)
 plt.close()
 
 sns.pairplot(tips, hue="sex", palette="husl")
+# Palettes:
+# https://matplotlib.org/examples/color/colormaps_reference.html
+
+
 # plt.show()
 plt.close()
 
@@ -242,4 +246,35 @@ sns.lmplot(x="total_bill", y="tip",
            hue="sex",
            aspect=0.6, size=8)
 
+# plt.show()
+plt.close()
+
+
+
+# 6 STYLE AND COLOR
+
+# Set diagram size
+plt.figure(figsize=(9, 5))
+
+# Set font size
+# sns.set_context("poster", font_scale=3)
+# sns.set_context("poster")
+
+# sns.set_style("ticks")
+sns.set_style("whitegrid")
+sns.countplot(x="sex", data=tips)
+
+# sns.despine(bottom=True, left=True)
+# sns.despine()
+
+
+# plt.show()
+plt.close()
+
+sns.lmplot(x="total_bill", y="tip",
+           data=tips, hue="sex", palette="seismic")
+
+
+
 plt.show()
+
