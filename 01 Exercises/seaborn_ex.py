@@ -178,8 +178,19 @@ sns.heatmap(fp, cmap="coolwarm", linecolor="white",
             linewidths=0.5)
 # cmap="magma"
 
-plt.show()
+# plt.show()
+plt.close()
 
+
+sns.clustermap(fp)
+# sns.clustermap(fp, cmap="coolwarm", standard_scale=1)
+
+# plt.show()
+plt.close()
+
+
+
+# 4. GRIDS
 
 
 
