@@ -279,8 +279,7 @@ sns.countplot(x="sex", data=tips)
 plt.close()
 
 sns.lmplot(x="total_bill", y="tip",
-           data=tips, hue="sex", palette="seismic"
-                                         "")
+           data=tips, hue="sex", palette="seismic")
 
 
 
