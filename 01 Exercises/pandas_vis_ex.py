@@ -26,6 +26,11 @@ df1.plot.line(y="B", figsize=(12, 3))
 # df1.plot.line(y="B", figsize=(12, 3), linewidth=1)
 plt.close()
 df1.plot.scatter(x="A", y="B", c="C", cmap="coolwarm")
+
+# Boundaries need to be called AFTER plot.scatter.
+# plt.xlim(-0.2, 1.2)
+# plt.ylim(-0.2, 1.2)
+
 # df1.plot.scatter(x="A", y="B", s=df1["C"] * 100)
 
 df2.plot.box()
