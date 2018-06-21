@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import plotly as py
-from plotly import __version__
 
 import cufflinks as cf
 
@@ -62,8 +61,96 @@ df3 = pd.DataFrame({"x": [1,2,3,4,5], "y": [10,20,30,40,50],
 #                             asFigure=True)
 # py.offline.plot(fig)
 
-fig = df1.iplot(kind="bubble", asFigure=True,
-                x="A", y="B", size="C")
+# fig = df1.iplot(kind="bubble", asFigure=True,
+#                 x="A", y="B", size="C")
+# py.offline.plot(fig)
+
+
+
+
+import plotly.figure_factory as ff
+
+# fig = ff.create_scatterplotmatrix(df1, height=1000,
+#                                   width=1000, diag="histogram",
+#                                   size=3, fillcolor="red")
+
+
+
+
+
+import plotly.graph_objs as go
+#
+# trace1 = go.Scatter3d(
+#     x=df3["x"],y=df3["y"],z=df3["z"],
+#     mode='markers',
+#     marker=dict(
+#         size=12,
+#         line=dict(
+#             color='rgba(217, 217, 217, 0.14)',
+#             width=0.5
+#         ),opacity=0.8))
+# data = [trace1]
+# fig = go.Figure(data=data)
+
+
+
+
+
+
+
+
+
+pl_colorscale=[[0.0, '#19d3f3'],
+               [0.333, '#19d3f3'],
+               [0.333, '#e763fa'],
+               [0.666, '#e763fa'],
+               [0.666, '#636efa'],
+               [1, '#636efa']]
+
+
+trace1 = go.Splom(dimensions=[dict(label='sepal length',
+                                 values=df1["A"]),
+                            dict(label='sepal width',
+                                 values=df1["B"]),
+                            dict(label='petal ngth',
+                                 values=df1["C"]),
+                            dict(label='petal len',
+                                 values=df1["D"])],
+                marker=dict(
+                            color="green",
+                            size=7,
+                            colorscale=pl_colorscale,
+                            showscale=False,
+                            line=dict(width=0.5,
+                                      color='red'))
+                )
+
+axis = dict(showline=True,
+          zeroline=False,
+          gridcolor='yellow',
+          ticklen=4)
+
+layout = go.Layout(
+    title='Iris Data set',
+    dragmode='select',
+    width=600,
+    height=600,
+    autosize=False,
+    hovermode='closest',
+    plot_bgcolor='lightgrey',
+    xaxis1=dict(axis),
+    xaxis2=dict(axis),
+    xaxis3=dict(axis),
+    xaxis4=dict(axis),
+    yaxis1=dict(axis),
+    yaxis2=dict(axis),
+    yaxis3=dict(axis),
+    yaxis4=dict(axis)
+)
+
+fig = dict(data=[trace1], layout=layout)
+
+
 py.offline.plot(fig)
 
 plt.show()
