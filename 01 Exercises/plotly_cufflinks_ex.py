@@ -44,7 +44,24 @@ df2 = pd.DataFrame({"Category": ["A", "B","C"],
 # fig = df1.iplot(kind="box", asFigure=True)
 # py.offline.plot(fig)
 
-df3 = 
+# 3 dimensions
+df3 = pd.DataFrame({"x": [1,2,3,4,5], "y": [10,20,30,40,50],
+                    "z": [500, 400, 300, 200, 100]})
+
+# fig = df3.iplot(kind="surface", asFigure=True,
+#                 colorscale="rdylgn")
+# py.offline.plot(fig)
+
+# fig = df1.iplot(kind="hist", asFigure=True, bins=50)
+# py.offline.plot(fig)
+
+# fig = df1["A"].iplot(kind="hist", asFigure=True, bins=50)
+# py.offline.plot(fig)
+
+fig = df1[["A", "B"]].iplot(kind="spread",
+                            asFigure=True)
+py.offline.plot(fig)
+
 plt.show()
 
 
