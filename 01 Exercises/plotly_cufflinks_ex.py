@@ -58,8 +58,12 @@ df3 = pd.DataFrame({"x": [1,2,3,4,5], "y": [10,20,30,40,50],
 # fig = df1["A"].iplot(kind="hist", asFigure=True, bins=50)
 # py.offline.plot(fig)
 
-fig = df1[["A", "B"]].iplot(kind="spread",
-                            asFigure=True)
+# fig = df1[["A", "B"]].iplot(kind="spread",
+#                             asFigure=True)
+# py.offline.plot(fig)
+
+fig = df1.iplot(kind="bubble", asFigure=True,
+                x="A", y="B", size="C")
 py.offline.plot(fig)
 
 plt.show()
