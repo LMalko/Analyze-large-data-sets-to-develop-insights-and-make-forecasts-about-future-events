@@ -75,7 +75,9 @@ import plotly.figure_factory as ff
 #                                   size=3, fillcolor="red")
 
 
-
+# scatter_matrix() on jupiter:
+# Similar to sns.pairplot()
+# df.scatter_matrix()
 
 
 import plotly.graph_objs as go
