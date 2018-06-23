@@ -17,11 +17,11 @@ cf.go_offline()
 
 
 data = dict(type="choropleth",
-            locations = ["AZ", "CA", "NY", "MT"],
+            locations = ["AZ", "CA", "NY", "FL"],
             locationmode = "USA-states",
-            colorscale = "Jet",
-            text = ["text 1", "text 2", "text3"],
-            z = [1.0, 2.0, 3.0],
+            colorscale = "Greens",
+            text = ["text 1", "text 2", "text3", "text4"],
+            z = [1.0, 1.5, 2.0, 1.5],
             colorbar = {"title": "Colorbar goes here"})
 
 layout = dict(geo={"scope": "usa"})
