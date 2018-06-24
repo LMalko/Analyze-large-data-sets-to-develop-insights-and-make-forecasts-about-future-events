@@ -30,3 +30,26 @@ choromap = go.Figure(data = [data], layout=layout)
 
 
 py.offline.plot(choromap)
+
+
+df = pd.read_csv("2011_US_AGRI_Exports.csv")
+
+data2 = dict(type="choropleth",
+            colorscale="YIOrRd",
+            locations = df["code"],
+            locationmode = "USA-states",
+            z = df["total exports"],
+            text = df["text"],
+            colorbar = {"title": "Millions USD"},
+            marker = dict(line =
+                          dict(color = "rgb(255, 255, 255)",
+                               width=2)))
+
+layout2 = dict(title = "2011 USA Agriculture Exports by State",
+              geo = dict(scope="usa",
+                         showlakes = True, lakecolor="rgb(85, 173, 240)"))
+
+choromap2 = go.Figure(data = [data2], layout=layout2)
+
+
+py.offline.plot(choromap2)
