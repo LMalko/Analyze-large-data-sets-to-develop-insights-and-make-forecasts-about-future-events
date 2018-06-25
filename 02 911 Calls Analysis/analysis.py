@@ -34,5 +34,47 @@ df["Reason"] = df["title"].apply(lambda title: title.split(":")[0])
 
 # 6. Countplot for 'Reason column'
 
-sns.countplot(x="Reason", data=df)
-plt.show()
+# sns.countplot(x="Reason", data=df, palette="viridis")
+# plt.show()
+
+# 7. Datatype of the objects in the timeStamp column
+
+# print(type(df['timeStamp'].iloc[0]))
+
+# 8. Convert this objects into DateTime objects.
+
+df['timeStamp'] = pd.to_datetime(df['timeStamp'])
+
+# print(type(df['timeStamp'].iloc[0]))
+
+# 9. Grab hour attribute from 'timeStamp column.
+
+# time = df['timeStamp'].iloc[0]
+#
+# print(time.hour)
+
+# 10. Create Hour, Month, Day of Week columns.
+
+df["Hour"] = df['timeStamp'].apply(
+    lambda time: time.hour)
+df["Month"] = df['timeStamp'].apply(
+    lambda time: time.month)
+
+#
+# days = ["Monday", "Tuesday", "Wednesday",
+#         "Thursday", "Friday", "Saturday", "Sunday"]
+#
+# df["Day of Week"] = df['timeStamp'].apply(
+#     lambda time: days[time.dayofweek])
+
+# alternative
+
+# dmap = {0: "Mon", 1: "Tue", 2:"Wed", 3:"Thu",
+#         4:"Fri", 5:"Sat", 6:"Sun"}
+# df["Day of Week"] = df['timeStamp'].apply(
+#     lambda time: time.dayofweek)
+# df["Day of Week"] = df["Day of Week"].map(dmap)
+
+print(df["Day of Week"])
+
+
