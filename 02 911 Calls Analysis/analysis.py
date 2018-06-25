@@ -22,5 +22,9 @@ df = pd.read_csv("911_data.csv")
 # print(df['title'].nunique())
 
 
-# 4. 
+# 4. Reason column with abbreviation value of Reasons/ Departments column.
+
+# df["Reason"] = df["title"].apply(lambda title: title.split(":")[0])
+#
+# print(df["Reason"])
 
