@@ -68,8 +68,63 @@ data3 = dict(type="choropleth",
 layout3 = dict(title = "2014 Global GDP",
               geo = dict(showframe=False,
                          projection={"type": "Mercator"}))
+#
+# choromap3 = go.Figure(data = [data3], layout=layout3)
+#
+#
+# py.offline.plot(choromap3)
 
-choromap3 = go.Figure(data = [data3], layout=layout3)
+
+df = pd.read_csv("2014_World_Power_Consumption.csv")
 
 
-py.offline.plot(choromap3)
+# df.head()
+
+
+data4 = dict(type="choropleth",
+            colorscale="Viridis",
+            locations = df["Country"],
+            reversescale = True,
+            locationmode = "country names",
+            z = df["Power Consumption KWH"],
+            text = df["Text"],
+            colorbar = {"title": "Power Consumption"})
+
+layout4 = dict(title = "Power Consumption",
+              geo = dict(showframe=False,
+                         projection={"type": "Mercator"}))
+
+# choromap4 = go.Figure(data = [data4], layout=layout4)
+#
+#
+# py.offline.plot(choromap4)
+
+
+
+df5 = pd.read_csv("2012_Election_Data.csv")
+
+# df.head()
+
+
+data5 = dict(type="choropleth",
+            colorscale="Viridis",
+            reversescale = True,
+            locations = df5["State Abv"],
+            locationmode = "USA-states",
+            z = df5['Voting-Age Population (VAP)'],
+            text = df5["State"],
+            colorbar = {"title": "Voting-Age Population (VAP)"},
+            marker = dict(line =
+                          dict(color = 'rgb(255,255,255)',
+                               width = 1)),)
+
+layout5 = dict(title = "Voting-Age Population",
+              geo = dict(scope="usa",
+                         showlakes = True,
+                         lakecolor="rgb(85, 173, 240)"))
+
+
+choromap5 = go.Figure(data = [data5], layout=layout5)
+
+
+py.offline.plot(choromap5)
