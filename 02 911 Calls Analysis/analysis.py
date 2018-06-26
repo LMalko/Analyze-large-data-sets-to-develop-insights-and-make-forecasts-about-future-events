@@ -137,17 +137,38 @@ df["Date"] = df['timeStamp'].apply(lambda time: time.date())
 
 # 16. "Date" column with "Reason" seperately.
 
-df[df["Reason"] == "Traffic"].groupby("Date").count()['desc'].plot()
-plt.tight_layout()
-plt.title("Traffic")
-plt.show()
-df[df["Reason"] == "Fire"].groupby("Date").count()['desc'].plot()
-plt.tight_layout()
-plt.title("Fire")
-plt.show()
-df[df["Reason"] == "EMS"].groupby("Date").count()['desc'].plot()
-plt.tight_layout()
-plt.title("EMS")
-plt.show()
+# df[df["Reason"] == "Traffic"].groupby("Date").count()['desc'].plot()
+# plt.tight_layout()
+# plt.title("Traffic")
+# plt.show()
+
+# df[df["Reason"] == "Fire"].groupby("Date").count()['desc'].plot()
+# plt.tight_layout()
+# plt.title("Fire")
+# plt.show()
+
+# df[df["Reason"] == "EMS"].groupby("Date").count()['desc'].plot()
+# plt.tight_layout()
+# plt.title("EMS")
+# plt.show()
+
+# 17. Heatmaps. Dataframe restructured to matrix form -
+# columns become the Hours and the index becomes the
+# day of the week.
+
+plt.figure(figsize=(12, 6))
 
 
+# print(df.groupby(by=["Day of Week", "Hour"]).count())
+# print(df.groupby(by=["Day of Week", "Hour"]).count()["Reason"].unstack())
+
+dayHour = df.groupby(by=["Day of Week", "Hour"]).count()["Reason"].unstack()
+sns.heatmap(dayHour, cmap="viridis")
+
+
+plt.show()
+
+# 18. Clustermap of the above DataFrame.
+
+sns.clustermap(dayHour)
+plt.show()
