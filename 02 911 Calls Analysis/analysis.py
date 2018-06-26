@@ -170,7 +170,7 @@ plt.show()
 
 # 18. Clustermap of the above DataFrame.
 
-sns.clustermap(dayHour)
+sns.clustermap(dayHour, cmap="coolwarm")
 plt.show()
 
 # 19. Heatmap and clustermap of the above DataFrame
@@ -182,5 +182,5 @@ sns.heatmap(dayMonth, cmap="viridis")
 
 plt.show()
 
-sns.clustermap(dayMonth)
+sns.clustermap(dayMonth, cmap="coolwarm")
 plt.show()
