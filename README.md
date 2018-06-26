@@ -1,3 +1,3 @@
-# 02 911 calls --> Data Analysis, data visualization.
+# 02 911 calls --> data analysis, data visualization.
 
 # 01 Exercises
