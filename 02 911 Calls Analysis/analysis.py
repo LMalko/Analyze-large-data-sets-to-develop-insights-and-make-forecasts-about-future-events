@@ -172,3 +172,15 @@ plt.show()
 
 sns.clustermap(dayHour)
 plt.show()
+
+# 19. Heatmap and clustermap of the above DataFrame
+# with months instead of hours.
+
+dayMonth = df.groupby(by=["Day of Week", "Month"]).count()["Reason"].unstack()
+sns.heatmap(dayMonth, cmap="viridis")
+
+
+plt.show()
+
+sns.clustermap(dayMonth)
+plt.show()
