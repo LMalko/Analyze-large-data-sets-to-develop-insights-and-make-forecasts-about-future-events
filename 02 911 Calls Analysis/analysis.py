@@ -124,8 +124,30 @@ byMonth = df.groupby("Month").count()
 #
 # plt.show()
 
-# 15. 
+# 15. "Date" column with date value from timeStamp column.
+# This column is grouped by with count() aggregate.
 
+df["Date"] = df['timeStamp'].apply(lambda time: time.date())
 
+# df.groupby("Date").count()['desc'].plot()
+# # df.groupby("Date").count()['lat'].plot()
+# plt.tight_layout()
+
+# plt.show()
+
+# 16. "Date" column with "Reason" seperately.
+
+df[df["Reason"] == "Traffic"].groupby("Date").count()['desc'].plot()
+plt.tight_layout()
+plt.title("Traffic")
+plt.show()
+df[df["Reason"] == "Fire"].groupby("Date").count()['desc'].plot()
+plt.tight_layout()
+plt.title("Fire")
+plt.show()
+df[df["Reason"] == "EMS"].groupby("Date").count()['desc'].plot()
+plt.tight_layout()
+plt.title("EMS")
+plt.show()
 
 
