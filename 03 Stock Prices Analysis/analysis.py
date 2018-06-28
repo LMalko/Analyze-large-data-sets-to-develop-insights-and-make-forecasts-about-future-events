@@ -26,23 +26,23 @@ start = datetime.datetime(2006, 1, 1)
 end = datetime.datetime(2016, 1, 1)
 
 # 'google' & 'yahoo' API are seem to be deprecated,
-# using 'quandl'.
+# using 'quandl' or 'mornignstar.
 
 # Bank of America
-BAC = data.DataReader("BAC", 'quandl', start, end)
+BAC = data.DataReader("BAC", 'morningstar', start, end)
 # CitiGroup
-C = data.DataReader("C", 'quandl', start, end)
+C = data.DataReader("C", 'morningstar', start, end)
 # Goldman Sachs
-GS = data.DataReader("GS", 'quandl', start, end)
+GS = data.DataReader("GS", 'morningstar', start, end)
 # JPMorgan Chase
-JPM = data.DataReader("JPM", 'quandl', start, end)
+JPM = data.DataReader("JPM", 'morningstar', start, end)
 # Morgan Stanley
-MS = data.DataReader("MS", 'quandl', start, end)
+MS = data.DataReader("MS", 'morningstar', start, end)
 # Wells Fargo
-WFC = data.DataReader("WFC", 'quandl', start, end)
+WFC = data.DataReader("WFC", 'morningstar', start, end)
 
 # df1 = data.DataReader(['BAC', 'C', 'GS', 'JPM', 'MS', 'WFC'],
-#                      'quandl', start, end)
+#                      'morningstar', start, end)
 # print(BAC)
 
 # 2. Tickers in alphabetical order. The bank dataframes
@@ -90,6 +90,14 @@ for tick in tickers:
 # 5. Dates each bank stock had the best and worst
 # single day returns.
 
-# print(returns.min())
+print(returns.min())
 
 print(returns.idxmin())
+print(returns.idxmax())
+
+# 6.  Standard deviation of the returns.
+
+print(returns.std())
+
+
+
