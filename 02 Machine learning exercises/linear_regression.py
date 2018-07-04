@@ -61,6 +61,15 @@ cdf = pd.DataFrame(coefficients_for_each_feature, X.columns,
 
 print(cdf)
 
+# Interpreting the coefficients:
+#
+# Holding all other features fixed, a 1 unit increase in Avg. Area Income is associated with an increase of $21.52 .
+# Holding all other features fixed, a 1 unit increase in Avg. Area House Age is associated with an increase of $164883.28 .
+# Holding all other features fixed, a 1 unit increase in Avg. Area Number of Rooms is associated with an increase of $122368.67 .
+# Holding all other features fixed, a 1 unit increase in Avg. Area Number of Bedrooms is associated with an increase of $2233.80 .
+# Holding all other features fixed, a 1 unit increase in Area Population is associated with an increase of $15.15 .
+# Does this make sense? Probably not because I made up this data.
+
 # Make predictions
 
 predictions = lr.predict(X_test)
@@ -72,3 +81,18 @@ plt.show()
 sns.distplot((y_test - predictions))
 
 plt.show()
+
+
+
+# Metrics
+
+
+from sklearn import metrics
+
+# MAE is the easiest to understand, because it's the average error.
+# MSE is more popular than MAE, because MSE "punishes" larger errors, which tends to be useful in the real world.
+# RMSE is even more popular than MSE, because RMSE is interpretable in the "y" units.
+
+print("MAE: ", metrics.mean_absolute_error(y_test, predictions))
+print("MSE: ", metrics.mean_squared_error(y_test, predictions))
+print("RMSE: ", np.sqrt(metrics.mean_squared_error(y_test, predictions)))
