@@ -74,6 +74,7 @@ print(cdf)
 
 predictions = lr.predict(X_test)
 
+# Scatterplot of the real test values versus the predicted values.
 plt.scatter(y_test, predictions)
 
 plt.show()
