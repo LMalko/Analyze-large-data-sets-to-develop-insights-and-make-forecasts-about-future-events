@@ -62,3 +62,13 @@ cdf = pd.DataFrame(coefficients_for_each_feature, X.columns,
 print(cdf)
 
 # Make predictions
+
+predictions = lr.predict(X_test)
+
+plt.scatter(y_test, predictions)
+
+plt.show()
+
+sns.distplot((y_test - predictions))
+
+plt.show()
