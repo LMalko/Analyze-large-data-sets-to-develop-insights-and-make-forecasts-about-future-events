@@ -24,6 +24,9 @@ sns.jointplot(x='total_bill',y='tip',data=tips, kind="hex")
 # plt.show()
 plt.close()
 
+# sns.set_palette("GnBu_d")
+# sns.set_style('whitegrid')
+
 sns.jointplot(x='total_bill', y='tip', data=tips, kind="kde")
 # plt.show()
 plt.close()
