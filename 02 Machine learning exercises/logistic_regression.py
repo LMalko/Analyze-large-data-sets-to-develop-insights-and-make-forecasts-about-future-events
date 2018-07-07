@@ -52,3 +52,39 @@ py.offline.plot(fig)
 
 
 
+# Cleaning the data
+
+# Imputation. Fill in missing age with avg age by passenger class
+sns.boxplot(x='Pclass', y='Age', data=train)
+plt.show()
+
+def impute_age(cols):
+    Age = cols[0]
+    Pclass = cols[1]
+
+    if pd.isnull(Age):
+        if Pclass == 1:
+            return 37
+        elif Pclass == 2:
+            return 29
+        return 24
+
+    else:
+        return Age
+
+train['Age'] = train[['Age', 'Pclass']].apply(impute_age,
+                                              axis=1)
+
+sns.heatmap(train.isnull(), yticklabels=False,
+            cbar=False, cmap='viridis')
+
+plt.show()
+
+# Cabin has to many missing values, it's better to drop it.
+
+train.dropna(inplace=True)
+
+sns.heatmap(train.isnull(), yticklabels=False,
+            cbar=False, cmap='viridis')
+
+plt.show()
