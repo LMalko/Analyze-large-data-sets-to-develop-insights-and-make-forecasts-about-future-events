@@ -88,3 +88,28 @@ sns.heatmap(train.isnull(), yticklabels=False,
             cbar=False, cmap='viridis')
 
 plt.show()
+
+
+
+
+
+
+# Categorical features - Creating a dummy variable
+# using multi-collinearity
+
+sex = pd.get_dummies(train['Sex'], drop_first=True)
+
+embark = pd.get_dummies(train['Embarked'], drop_first=True)
+
+train = pd.concat([train, sex, embark], axis=1)
+
+
+# Delete unnecessary columns
+
+# train.drop(['PassengerId', 'Sex', 'Embarked', 'Name', 'Ticket'],
+#            axis=1, inplace=True)
+
+
+
+
+
