@@ -288,3 +288,6 @@ sns.lmplot(x="total_bill", y="tip",
 
 plt.show()
 
+
+
+sns.set_style({'axes.grid': True})
