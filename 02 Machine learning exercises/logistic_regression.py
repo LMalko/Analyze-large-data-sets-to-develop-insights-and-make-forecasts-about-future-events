@@ -94,8 +94,6 @@ plt.show()
 
 
 
-
-
 # Categorical features - Creating a dummy variable
 # using multi-collinearity
 
@@ -110,8 +108,6 @@ train = pd.concat([train, sex, embark], axis=1)
 
 train.drop(['PassengerId', 'Sex', 'Embarked', 'Name', 'Ticket', 'Cabin'],
            axis=1, inplace=True)
-
-
 
 
 X = train.drop("Survived", axis=1)
