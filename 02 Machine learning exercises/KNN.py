@@ -69,4 +69,7 @@ plt.ylabel("Error Rate")
 
 plt.show()
 
+sns.pairplot(df)
+plt.show()
+
 
