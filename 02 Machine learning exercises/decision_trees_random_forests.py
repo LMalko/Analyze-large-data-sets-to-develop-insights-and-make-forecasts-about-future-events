@@ -47,6 +47,14 @@ print(classification_report(y_test, predictions))
 
 rfc = RandomForestClassifier(n_estimators=200)
 
+rfc.fit(X_train, y_train)
+rfc_pred = rfc.predict(X_test)
 
+print(confusion_matrix(y_test, rfc_pred))
+print(classification_report(y_test, rfc_pred))
+
+
+print("data set is unbalanced")
+print(data["Kyphosis"].value_counts())
 
 
